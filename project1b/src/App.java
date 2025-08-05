@@ -1,30 +1,15 @@
-public class Professor {
-    private String nome;
-    private int anosExperiencia;
-    
-    public Professor(String nome, int anosExperiencia) {
-        this.nome = nome;
-        this.anosExperiencia = anosExperiencia;
-    }
-    
-    public String getNome() {
-        return nome;
-    }
-    
-    public int getAnosExperiencia() {
-        return anosExperiencia;
-    }
+import java.util.Scanner;
 
-    public String classifica() {
-        return switch(anosExperiencia){
-            case 0,1,2,3,4,5 -> "Assistente";
-            case 6,7,8,9,10 -> "Adjunto";
-            default -> "Titular";
-        }
-    }
-
-    @Override
-    public String toString() {
-        return "Professor: " + nome + ", anos de experiencia: " + anosExperiencia;
+public class App {
+    public static void main(String args[]){
+        Scanner s = new Scanner(System.in);
+        System.out.print("Nome do professor? ");
+        String nome = s.next();
+        System.out.print("Quantos anos de experiencia ele tem? ");
+        int experiencia = s.nextInt();
+        Professor p = new Professor(nome,experiencia);
+        System.out.println(p.toString());
+        System.out.println("Categoria: "+p.classifica());
+        s.close();
     }
 }
